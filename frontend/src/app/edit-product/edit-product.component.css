@@ -1,0 +1,10 @@
+.product-image{
+  width: 200px;
+  height: 200px; /* Ajustez la hauteur fixe de l'image selon vos besoins */
+  object-fit: cover; /* Ajustez selon la façon dont vous souhaitez que l'image soit redimensionnée */
+  border-radius: 5px;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  display: flex;
+}

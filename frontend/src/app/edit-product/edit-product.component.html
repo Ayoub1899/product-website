@@ -1,0 +1,59 @@
+<head>
+
+  <title>Modifier un Produit</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<app-navbar></app-navbar>
+<div class="col-md-6 offset-md-3">
+  <h3>Modifier un produit</h3>
+
+  <div class="product-image" *ngIf="file">
+    <img
+      src="{{product.image}}"
+      alt=""
+    />
+  </div>
+    <div class="product-image" *ngIf="file == null && product.image">
+      <img
+        src="data:image/*;base64,{{product.image.data}}"
+        alt=""
+      />
+    </div>
+  <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label> Image</label>
+      <input type="file" class="form-control" (change)="onChangeFileField($event)" formControlName="image">
+    </div>
+    <div class="form-group">
+      <label> Nom</label>
+      <input type="text" class="form-control" formControlName="name" required>
+    </div>
+    <div class="form-group">
+      <label>Prix</label>
+      <input type="number" class="form-control" formControlName="price" required>
+    </div>
+    <div class="form-group">
+      <label>Quantité</label>
+      <input type="number" class ="form-control"
+             formControlName="quantity" required>
+    </div>
+    <div class="form-group">
+      <label> Catégorie</label>
+      <br>
+      <select name="category" id="category" formControlName="category" required>
+        <option value="MODE">MODE</option>
+        <option value="SPORT">SPORT</option>
+        <option value="CULTURE">CULTURE</option>
+        <option value="JOUETS">JOUETS</option>
+        <option value="INFORMATIQUE">INFORMATIQUE</option>
+        <option value="ELECTROMENAGER">ELECTROMENAGER</option>
+        <option value="AUTRE">AUTRE</option>
+
+      </select>
+    </div>
+    <br>
+    <button class = "btn btn-success" type ="submit">Enregistrer</button>
+
+  </form>
+</div>
